@@ -7,7 +7,7 @@ function createGrid(size) {
 
     for (let i = 0; i < size * size; i++) {
         const square = document.createElement('div');
-        square.classList.add('square');
+        square.style.backgroundColor = getRandomColor();
         gridContainer.appendChild(square);
         square.style.width = `calc(100%/${size})`;
         square.style.height = `calc(100%/${size})`;
@@ -32,7 +32,7 @@ function createGrid(size) {
 
 }
 
-const newGridBtn = document.querySelector('.newgrid');
+const newGridBtn = document.querySelector('.new-grid');
 newGridBtn.addEventListener('click', () => {
     gridContainer.textContent = '';
 
@@ -46,6 +46,17 @@ newGridBtn.addEventListener('click', () => {
 
 
 });
+
+function getRandomColor() {
+    let red = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 255);
+    
+   
+
+    let color = `rgb(${red}, ${green}, ${blue})`;
+    return color;
+}
 
 
 
